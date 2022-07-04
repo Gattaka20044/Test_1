@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Test1">
         <activity
             android:name=".SplashScreen"
-            android:theme="@style/SplashTheme"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
