@@ -4,12 +4,18 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+
 import android.view.WindowManager
+import com.bignerdranch.android.test1.databinding.ActivirySplashScreenBinding
+
 
 class SplashScreen : AppCompatActivity() {
+   private lateinit var bindingClass : ActivirySplashScreenBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activiry_splash_screen)
+        bindingClass = ActivirySplashScreenBinding.inflate(layoutInflater)
+        setContentView(bindingClass.root)
 
 
         window.setFlags(
@@ -23,7 +29,7 @@ class SplashScreen : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
-            }, 3000)
+            }, 1500)
 
     }
 }

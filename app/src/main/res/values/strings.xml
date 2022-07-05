@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">Test 1</string>
-    <string name="login">Логни</string>
+    <string name="login">Логин</string>
     <string name="enter_username">Введите логин</string>
     <string name="password">Пароль</string>
     <string name="enter_password">Введите пароль</string>
     <string name="enter">Вход</string>
+    <string name="not_true_login">Не верный логин</string>
+    <string name="not_true_password">Не верный пароль</string>
 </resources>
