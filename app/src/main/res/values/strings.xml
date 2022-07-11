@@ -7,4 +7,11 @@
     <string name="enter">Вход</string>
     <string name="not_true_login">Не верный логин</string>
     <string name="not_true_password">Не верный пароль</string>
+    <string name="number_a">Число а:</string>
+    <string name="number_b">Число b:</string>
+    <string name="enter_number_a">Введите число а:</string>
+    <string name="enter_number_b">Введите число b:</string>
+    <string name="result">Результат:</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

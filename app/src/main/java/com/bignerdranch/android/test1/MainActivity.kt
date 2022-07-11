@@ -17,20 +17,29 @@ class MainActivity : AppCompatActivity() {
         bindingClass = ActivityMainBinding.inflate(layoutInflater)
         setContentView(bindingClass.root)
 
-        bindingClass.enter.setOnClickListener {
-            val login = bindingClass.enterLogin.text.toString()
-            val password = bindingClass.enterPassword.text.toString().toInt()
-            users.keys.forEach() { it ->
-                if (it == login) {
-                    if (users[it] == password) {
-                        Toast.makeText(this, "Вход выполнен", Toast.LENGTH_SHORT).show()
-                    } else{
-                        Toast.makeText(this, R.string.not_true_password, Toast.LENGTH_SHORT).show()
-                    }
-                } else{
-                    Toast.makeText(this, R.string.not_true_login, Toast.LENGTH_SHORT).show()
-                }
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_activity, AuthorizationFragment.newInstance())
+            .commit()
+
+
+    }
+}
+/*
+bindingClass.enter.setOnClickListener {
+    val login = bindingClass.enterLogin.text.toString()
+    val password = bindingClass.enterPassword.text.toString().toInt()
+    users.keys.forEach() { it ->
+        if (it == login) {
+            if (users[it] == password) {
+                Toast.makeText(this, "Вход выполнен", Toast.LENGTH_SHORT).show()
+            } else{
+                Toast.makeText(this, R.string.not_true_password, Toast.LENGTH_SHORT).show()
             }
+        } else{
+            Toast.makeText(this, R.string.not_true_login, Toast.LENGTH_SHORT).show()
         }
     }
 }
+
+*/
