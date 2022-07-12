@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.fragment_activity, AuthorizationFragment.newInstance())
+            .replace(R.id.fragment_main, CalculatorFragment.newInstance())
             .commit()
 
 
