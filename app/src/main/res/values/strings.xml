@@ -12,6 +12,7 @@
     <string name="enter_number_a">Введите число а:</string>
     <string name="enter_number_b">Введите число b:</string>
     <string name="result">Результат:</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="error_enter_number_a">Введите число а</string>
+    <string name="error_enter_number_b">Введите число b</string>
+    <string name="error_enter_number_a_b">Введите число а и b</string>
 </resources>

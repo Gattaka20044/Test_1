@@ -11,23 +11,19 @@ import java.math.RoundingMode
 
 class CalculatorFragment : Fragment() {
 
-
-
-
-    lateinit var binding: FragmentCalculatorBinding
-
+    lateinit var bindingClass: FragmentCalculatorBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentCalculatorBinding.inflate(inflater)
-        return binding.root
+        bindingClass = FragmentCalculatorBinding.inflate(inflater)
+        return bindingClass.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.addition.setOnClickListener{
-            binding.apply {
+        bindingClass.addition.setOnClickListener {
+            bindingClass.apply {
                 val numA = numberA.text
                 val numB = numberB.text
                 val res = when {
@@ -42,8 +38,9 @@ class CalculatorFragment : Fragment() {
                 result.text = res
             }
         }
-        binding.subtraction.setOnClickListener{
-            binding.apply {
+
+        bindingClass.subtraction.setOnClickListener {
+            bindingClass.apply {
                 val numA = numberA.text
                 val numB = numberB.text
                 val res = when {
@@ -58,8 +55,9 @@ class CalculatorFragment : Fragment() {
                 result.text = res
             }
         }
-        binding.multiplication.setOnClickListener{
-            binding.apply {
+
+        bindingClass.multiplication.setOnClickListener {
+            bindingClass.apply {
                 val numA = numberA.text
                 val numB = numberB.text
                 val res = when {
@@ -74,8 +72,9 @@ class CalculatorFragment : Fragment() {
                 result.text = res
             }
         }
-        binding.division.setOnClickListener{
-            binding.apply {
+
+        bindingClass.division.setOnClickListener {
+            bindingClass.apply {
                 val numA = numberA.text
                 val numB = numberB.text
                 val res = when {
@@ -87,14 +86,13 @@ class CalculatorFragment : Fragment() {
                         res.toBigDecimal().setScale(4, RoundingMode.HALF_UP).toDouble().toString()
                     }
                 }
-                result.text = res.format("%.4f", res)
+                result.text = res
             }
+
         }
-
     }
-
     companion object {
-        @JvmStatic
-        fun newInstance() = CalculatorFragment()
-    }
+            @JvmStatic
+            fun newInstance() = CalculatorFragment()
+        }
 }

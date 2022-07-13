@@ -1,15 +1,14 @@
 package com.bignerdranch.android.test1
 
-import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.bignerdranch.android.test1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var bindingClass : ActivityMainBinding
-
+    lateinit var bindingClass : ActivityMainBinding
+    private val dataModel: DataModel by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,27 +18,14 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.fragment_main, CalculatorFragment.newInstance())
+            .replace(R.id.fragment_main, AuthorizationFragment.newInstance())
             .commit()
 
-
-    }
-}
-/*
-bindingClass.enter.setOnClickListener {
-    val login = bindingClass.enterLogin.text.toString()
-    val password = bindingClass.enterPassword.text.toString().toInt()
-    users.keys.forEach() { it ->
-        if (it == login) {
-            if (users[it] == password) {
-                Toast.makeText(this, "Вход выполнен", Toast.LENGTH_SHORT).show()
-            } else{
-                Toast.makeText(this, R.string.not_true_password, Toast.LENGTH_SHORT).show()
-            }
-        } else{
-            Toast.makeText(this, R.string.not_true_login, Toast.LENGTH_SHORT).show()
+        dataModel.flagAuthorization.observe(this) {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragment_main, CalculatorFragment.newInstance())
+                .commit()
         }
     }
 }
-
-*/

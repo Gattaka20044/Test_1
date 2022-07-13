@@ -5,26 +5,40 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.activityViewModels
+import com.bignerdranch.android.test1.databinding.FragmentAuthorizationBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [AuthorizationFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AuthorizationFragment : Fragment() {
 
+    lateinit var bindingClass: FragmentAuthorizationBinding
+    private val dataModel: DataModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_authorization, container, false)
+
+        bindingClass = FragmentAuthorizationBinding.inflate(inflater)
+        return bindingClass.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        bindingClass.enter.setOnClickListener{
+            val login = bindingClass.enterLogin.text.toString()
+            val password = if (bindingClass.enterPassword.text.toString() != "") bindingClass.enterPassword.text.toString().toInt() else 0
+            users.keys.forEach() { it ->
+                if (it == login) {
+                    if (users[it] == password) {
+                        dataModel.flagAuthorization.value = true
+                    } else{
+                        Toast.makeText(activity, R.string.not_true_password, Toast.LENGTH_SHORT).show()
+                    }
+                } else{
+                    Toast.makeText(activity, R.string.not_true_login, Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 
     companion object {
@@ -33,3 +47,22 @@ class AuthorizationFragment : Fragment() {
 
     }
 }
+/*
+
+bindingClass.enter.setOnClickListener {
+    val login = bindingClass.enterLogin.text.toString()
+    val password = bindingClass.enterPassword.text.toString().toInt()
+    users.keys.forEach() { it ->
+        if (it == login) {
+            if (users[it] == password) {
+                Toast.makeText(this, "Вход выполнен", Toast.LENGTH_SHORT).show()
+            } else{
+                Toast.makeText(this, R.string.not_true_password, Toast.LENGTH_SHORT).show()
+            }
+        } else{
+            Toast.makeText(this, R.string.not_true_login, Toast.LENGTH_SHORT).show()
+        }
+    }
+}
+
+ */

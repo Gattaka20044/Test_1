@@ -26,7 +26,8 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
-            android:hint="@string/enter_username" >
+            android:hint="@string/enter_username"
+            android:inputType="text">
 
         </EditText>
 
@@ -44,7 +45,8 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
-            android:hint="@string/enter_password" >
+            android:hint="@string/enter_password"
+            android:inputType="numberPassword">
 
         </EditText>
 
